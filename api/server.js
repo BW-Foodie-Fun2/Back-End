@@ -3,6 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 
 const AuthRouter = require('../auth/authRouter');
+const RestaurantRouter = require ('./restaurants/restaurantRouter')
 
 const server = express();
 
@@ -11,6 +12,7 @@ server.use(cors());
 server.use(express.json());
 
 server.use('/api/auth', AuthRouter);
+server.use('/api/restaurants', RestaurantRouter);
 
 server.get('/', (req, res) => {
     res.status(200).json({ api: 'api is up and running!'});
