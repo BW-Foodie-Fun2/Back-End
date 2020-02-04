@@ -11,8 +11,6 @@ router.post('/register', signupRequirements, checkForDuplicates, (req, res) => {
     const hash = bcrypt.hashSync(user.password, 10);
     user.password = hash;
 
-    const token = signToken(user);
-
     Users.add(user)
         .then(saved => {
             res.status(201).json({
