@@ -59,6 +59,7 @@ exports.up = function(knex) {
           .notNullable()
           tbl.datetime('created_at').defaultTo(knex.fn.now())
           tbl.datetime('updated_at').defaultTo(knex.fn.now())
+          tbl.date('date_visited')
       })
   };
   
