@@ -10,7 +10,6 @@ exports.up = function(knex) {
         tbl.increments();
         tbl.string('name', 255)
           .notNullable()
-          .unique();
         tbl.integer('cuisine_id')
           .unsigned()
           .notNullable()
