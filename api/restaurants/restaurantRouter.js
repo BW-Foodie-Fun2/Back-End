@@ -32,7 +32,7 @@ router.post("/", restricted, (req, res) => {
 router.put("/:id", restricted, (req, res) => {
     const id = req.params.id
     const changes = req.body
-    restaurantModel.addRestaurant(id, changes)
+    restaurantModel.updateRestaurant(id, changes)
       .then(restaurant => {
         res.status(200).json(restaurant)
       })
