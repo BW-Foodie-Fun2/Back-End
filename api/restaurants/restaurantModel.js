@@ -3,7 +3,9 @@ const db = require('../../database/db-config');
 module.exports = {
   addRestaurant,
   findRestaurants,
-  findById
+  findById,
+  deleteRestaurant,
+  updateRestaurant
 };
 
 function findRestaurants() {
@@ -22,4 +24,17 @@ function addRestaurant(restaurant) {
 function findById (id){
   return db('restaurants')
       .where('restaurants.id', id)
+}
+
+function updateRestaurant(id, changes) {
+  return db('restaurants')
+    .where('restaurants.id', id)
+    .update(changes)
+    .then(count => (count > 0 ? this.get(id) : null));
+}
+
+function deleteRestaurant(id) {
+  return db('restaurants')
+    .where('restaurants.id', id)
+    .del();
 }
