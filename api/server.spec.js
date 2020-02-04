@@ -4,7 +4,7 @@ const server = require("./server.js");
 
 describe("server.js", function () {
     describe("environment", function () {
-        it("should set environment to testing", function () {
+        it("should set environment to development", function () {
             expect(process.env.DB_ENV).toBe("development");
         });
     });
