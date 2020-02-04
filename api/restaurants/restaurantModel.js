@@ -30,7 +30,6 @@ function updateRestaurant(id, changes) {
   return db('restaurants')
     .where('restaurants.id', id)
     .update(changes)
-    .then(count => (count > 0 ? this.get(id) : null));
 }
 
 function deleteRestaurant(id) {
