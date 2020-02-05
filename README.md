@@ -268,7 +268,7 @@ _The returned object will look like:_
 ]
 ```
 
-## Submit Restaurant
+## Submit a Restaurant
 ------
 _HTTP Method: [POST]_  
 __URL: /api/restaurants__
