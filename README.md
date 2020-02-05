@@ -424,3 +424,67 @@ _The returned object will look like:_
     }
 ]
 ```
+## Retrieve All Reviews by a certain user
+-------------------
+_HTTP Method: [GET]_  
+__URL: /api/users/:username/reviews__
+
+_The returned object will look like:_
+
+```
+[
+    {
+        "id": 4,
+        "menu_item": "burrito",
+        "item_price": 6.5,
+        "item_rating": 4,
+        "item_review": "Yeah it was okay.",
+        "restaurant_id": 2,
+        "reviewed_by": "EthanHoover0",
+        "item_image_url": "https://www.mrbreakfast.com/images/1077_spicy_cheesy_eggs.jpg",
+        "created_at": "2020-02-04 18:21:54",
+        "updated_at": "2020-02-04 18:21:54",
+        "date_visited": "2020-1-05"
+    },
+    {
+        "id": 5,
+        "menu_item": "Super Amazing Salad",
+        "item_price": 20.5,
+        "item_rating": 5,
+        "item_review": "Yeah it was amazing.",
+        "restaurant_id": 1,
+        "reviewed_by": "EthanHoover0",
+        "item_image_url": "https://www.mrbreakfast.com/images/1077_spicy_cheesy_eggs.jpg",
+        "created_at": "2020-02-04 18:25:37",
+        "updated_at": "2020-02-04 18:25:37",
+        "date_visited": null
+    }
+]
+```
+---
+
+## Retrieve All Restaurants created by a user
+-------------------
+_HTTP Method: [GET]_  
+__URL: /api/users/:username/restaurants__
+
+_The returned object will look like:_
+
+```
+[
+    {
+        "name": "Zaba00s0850080",
+        "cuisine_id": 2,
+        "location": "Las Vegas, NV",
+        "hours_of_operation": "11:00AM - 9PM",
+        "img_url": "sfdsdf"
+    },
+    {
+        "name": "Zaba00s0850080",
+        "cuisine_id": 2,
+        "location": "Las Vegas, NV",
+        "hours_of_operation": "11:00AM - 9PM",
+        "img_url": "sfdsdf"
+    }
+]
+```
