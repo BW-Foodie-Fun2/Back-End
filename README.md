@@ -233,7 +233,7 @@ nothing as of right now
 ## Retrieve All Reviews
 -------------------
 _HTTP Method: [GET]_  
-__URL: /api/:username/reviews__
+__URL: /api/users/:username/reviews__
 
 _The returned object will look like:_
 
@@ -269,10 +269,10 @@ _The returned object will look like:_
 ```
 ---
 
-## Retrieve All Restaurants for a User
+## Retrieve All Restaurants by a user
 -------------------
 _HTTP Method: [GET]_  
-__URL: /api/:username/restaurants__
+__URL: /api/users/:username/restaurants__
 
 _The returned object will look like:_
 
