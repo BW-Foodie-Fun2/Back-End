@@ -38,6 +38,7 @@ router.post('/login', loginRequirements, (req, res) => {
           res.status(200).json({
             token: token,
             message: `Welcome back ${user.username}!`,
+            reviewed_by: user.username
           });
         } else {
           res.status(401).json({ message: 'Invalid Credentials' });
