@@ -233,7 +233,7 @@ nothing as of right now
 ## Retrieve All Reviews
 -------------------
 _HTTP Method: [GET]_  
-__URL: /api/:username/reviews__
+__URL: /api/users/:username/reviews__
 
 _The returned object will look like:_
 
