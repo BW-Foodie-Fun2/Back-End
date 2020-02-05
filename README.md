@@ -233,7 +233,7 @@ nothing as of right now
 ## Retrieve All Reviews
 -------------------
 _HTTP Method: [GET]_  
-__URL: /api/:username/reviews__
+__URL: /api/users/:username/reviews__
 
 _The returned object will look like:_
 
@@ -264,6 +264,33 @@ _The returned object will look like:_
         "created_at": "2020-02-04 18:25:37",
         "updated_at": "2020-02-04 18:25:37",
         "date_visited": null
+    }
+]
+```
+---
+
+## Retrieve All Restaurants by a user
+-------------------
+_HTTP Method: [GET]_  
+__URL: /api/users/:username/restaurants__
+
+_The returned object will look like:_
+
+```
+[
+    {
+        "name": "Zaba00s0850080",
+        "cuisine_id": 2,
+        "location": "Las Vegas, NV",
+        "hours_of_operation": "11:00AM - 9PM",
+        "img_url": "sfdsdf"
+    },
+    {
+        "name": "Zaba00s0850080",
+        "cuisine_id": 2,
+        "location": "Las Vegas, NV",
+        "hours_of_operation": "11:00AM - 9PM",
+        "img_url": "sfdsdf"
     }
 ]
 ```

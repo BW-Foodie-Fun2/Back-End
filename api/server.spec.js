@@ -25,7 +25,7 @@ describe("server.js", function () {
 
             return request(server)
                 .post("/api/auth/register")
-                .send({ username: "nicole19", email: "nicole19@email.com", password: "pass", location: "san diego, ca" }) //update with a new username and email for every test
+                .send({ username: "nicol", email: "nicola@email.com", password: "pass", location: "san diego, ca" }) //update with a new username and email for every test
                 .then(res => {
                     expect(res.status).toBe(201);
                 });
@@ -37,7 +37,7 @@ describe("server.js", function () {
 
             return request(server)
                 .post("/api/auth/login")
-                .send({ username: "nicole1", password: "pass",  })
+                .send({ username: "nicole1", password: "pass", })
                 .then(res => {
                     expect(res.status).toBe(200);
                 });

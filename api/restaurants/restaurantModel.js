@@ -5,7 +5,8 @@ module.exports = {
   findRestaurants,
   findById,
   deleteRestaurant,
-  updateRestaurant
+  updateRestaurant,
+  findByUsername
 };
 
 function findRestaurants() {
@@ -30,11 +31,17 @@ function updateRestaurant(id, changes) {
   return db('restaurants')
     .where('restaurants.id', id)
     .update(changes)
-    .then(count => (count > 0 ? this.get(id) : null));
 }
 
 function deleteRestaurant(id) {
   return db('restaurants')
     .where('restaurants.id', id)
     .del();
+}
+
+function findByUsername(username) {
+  return db('restaurants')
+      .where({created_by: username})
+      .orderBy('id')
+      .select('name', 'cuisine_id', 'location', 'hours_of_operation', 'img_url')
 }
