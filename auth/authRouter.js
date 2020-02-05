@@ -52,6 +52,7 @@ router.post('/login', loginRequirements, (req, res) => {
 function signToken(user) {
     const payload = {
         username: user.username,
+        reviewed_by: user.username
     };
 
     const options = {

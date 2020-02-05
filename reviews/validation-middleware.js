@@ -13,7 +13,7 @@ function bodyValidation(req, res, next) {
     if (menu_item && item_price && item_rating && item_review && restaurant_id && item_image_url) {
         next()
     }  else {
-        res.status(400).json({ message: 'Please provide all data for review'})
+        res.status(400).json({ message: 'Please menu_item, item_price, item_rating, item_review, restaurant_id, and item_image_url'})
     }
 }
 
