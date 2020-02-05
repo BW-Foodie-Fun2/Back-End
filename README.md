@@ -267,3 +267,159 @@ _The returned object will look like:_
     }
 ]
 ```
+
+## Submit Restaurant
+------
+_HTTP Method: [POST]_  
+__URL: /api/restaurants__
+
+Must be validated user with token
+
+Schema:
+
+| Name | Type  | Required | description |
+|------|:-----:|:---------:|:-----:|
+|name| string | yes | name of restaurant|
+|cuisine_id | integer | yes | type of cusine|
+|location | string | yes | location of restaurant |
+|hours_of_operation | string | yes | hours of operation |
+|img_url| string | yes | picture of restaurant in jpg form|
+|created_by| string  | yes | username |
+
+
+_Example_
+
+```
+{
+	    "name": "Nicole's Cafe",
+	    "cuisine_id": 1,
+        "location": "San Diego, CA",
+        "hours_of_operation": "9:00AM - 9:00PM",
+        "img_url": "https://koreatownladirectory.com/wpcontent/uploads/2015/02/nicoles-cafe-koreatown-plaza.jpg",
+}
+```
+
+_The returned object:_
+
+```
+{
+    "id": 23,
+    "name": "Nicole's Cafe",
+    "cuisine_id": 1,
+    "location": "San Diego, CA",
+    "hours_of_operation": "9:00AM - 9:00PM",
+    "img_url": "https://koreatownladirectory.com/wpcontent/uploads/2015/02/nicoles-cafe-koreatown-plaza.jpg",
+    "created_by": "nicole",
+    "created_at": "2020-02-05 00:46:48",
+    "updated_at": "2020-02-05 00:46:48"
+}
+```
+---
+
+## Update a Restaurant
+---
+_HTTP Method: [PUT]_  
+__URL: /api/restaurants/:id__
+
+Must be validated user with token
+
+---
+
+## Retrieve All Restaurants
+-------------------
+_HTTP Method: [GET]_  
+__URL: /api/restaurants__
+
+_The returned object will look like:_
+
+```
+[
+    {
+       "id": 1,
+        "name": "Nikki's Cafe",
+        "cuisine_id": 2,
+        "location": "Las Vegas, NV",
+        "hours_of_operation": "7:00AM - 1PM",
+        "img_url": "https://media-cdn.tripadvisor.com/media/photo-s/08/1b/0a/26/egg-works.jpg",
+        "created_by": "josh",
+        "created_at": "2020-02-04 16:58:37",
+        "updated_at": "2020-02-04 16:58:37"
+  },
+  {
+        "id": 2,
+        "name": "Zabas",
+        "cuisine_id": 47,
+        "location": "Las Vegas, NV",
+        "hours_of_operation": "11:00AM - 9PM",
+        "img_url": "https://s3-media2.fl.yelpcdn.com/bphoto/K5Y2LW7ayGM_InqMtXRNPg/o.jpg",
+        "created_by": "kelly",
+        "created_at": "2020-02-04 16:58:37",
+        "updated_at": "2020-02-04 16:58:37"
+    },
+]
+```
+---
+
+## Delete a Restaurant
+---
+_HTTP Method: [DELETE]_  
+__URL: /api/restaurants/:id__
+Must be validated user with token
+
+Schema:
+
+| Name | Type  | Required | description |
+|------|:-----:|:---------:|:-----:|
+|id| integer | yes | restaurant id|
+
+
+_Example_
+
+```
+[url]/api/restaurants/1
+```
+
+_returns:_
+
+```
+Count of records deleted
+```
+---
+
+## Retrieve Reviews by Restaurant
+-------------------
+_HTTP Method: [GET]_  
+__URL: /api/:restaurant_id/reviews__
+
+_The returned object will look like:_
+
+```
+[
+    {
+        "id": 3,
+    "menu_item": "Cheesy eggs",
+    "item_price": 6.5,
+    "item_rating": 4,
+    "item_review": "Yeah it was okay.",
+    "restaurant_id": 2,
+    "reviewed_by": "josh",
+    "item_image_url": "https://www.mrbreakfast.com/images/1077_spicy_cheesy_eggs.jpg",
+    "created_at": "2020-02-04 16:58:37",
+    "updated_at": "2020-02-04 16:58:37",
+    "date_visited": "2020-1-05"
+  },
+  {
+    "id": 4,
+    "menu_item": "burrito",
+    "item_price": 6.5,
+    "item_rating": 4,
+    "item_review": "Yeah it was okay.",
+    "restaurant_id": 2,
+    "reviewed_by": "EthanHoover0",
+    "item_image_url": "https://www.mrbreakfast.com/images/1077_spicy_cheesy_eggs.jpg",
+    "created_at": "2020-02-04 18:21:54",
+    "updated_at": "2020-02-04 18:21:54",
+    "date_visited": "2020-1-05"
+    }
+]
+```
