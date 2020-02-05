@@ -296,6 +296,7 @@ _Example_
         "location": "San Diego, CA",
         "hours_of_operation": "9:00AM - 9:00PM",
         "img_url": "https://koreatownladirectory.com/wpcontent/uploads/2015/02/nicoles-cafe-koreatown-plaza.jpg",
+        "created_by": "nicole"
 }
 ```
 
@@ -397,29 +398,29 @@ _The returned object will look like:_
 [
     {
         "id": 3,
-    "menu_item": "Cheesy eggs",
-    "item_price": 6.5,
-    "item_rating": 4,
-    "item_review": "Yeah it was okay.",
-    "restaurant_id": 2,
-    "reviewed_by": "josh",
-    "item_image_url": "https://www.mrbreakfast.com/images/1077_spicy_cheesy_eggs.jpg",
-    "created_at": "2020-02-04 16:58:37",
-    "updated_at": "2020-02-04 16:58:37",
-    "date_visited": "2020-1-05"
+        "menu_item": "Cheesy eggs",
+        "item_price": 6.5,
+        "item_rating": 4,
+        "item_review": "Yeah it was okay.",
+        "restaurant_id": 2,
+        "reviewed_by": "josh",
+        "item_image_url": "https://www.mrbreakfast.com/images/1077_spicy_cheesy_eggs.jpg",
+        "created_at": "2020-02-04 16:58:37",
+        "updated_at": "2020-02-04 16:58:37",
+        "date_visited": "2020-1-05"
   },
   {
-    "id": 4,
-    "menu_item": "burrito",
-    "item_price": 6.5,
-    "item_rating": 4,
-    "item_review": "Yeah it was okay.",
-    "restaurant_id": 2,
-    "reviewed_by": "EthanHoover0",
-    "item_image_url": "https://www.mrbreakfast.com/images/1077_spicy_cheesy_eggs.jpg",
-    "created_at": "2020-02-04 18:21:54",
-    "updated_at": "2020-02-04 18:21:54",
-    "date_visited": "2020-1-05"
+        "id": 4,
+        "menu_item": "burrito",
+        "item_price": 6.5,
+        "item_rating": 4,
+        "item_review": "Yeah it was okay.",
+        "restaurant_id": 2,
+        "reviewed_by": "EthanHoover0",
+        "item_image_url": "https://www.mrbreakfast.com/images/1077_spicy_cheesy_eggs.jpg",
+        "created_at": "2020-02-04 18:21:54",
+        "updated_at": "2020-02-04 18:21:54",
+        "date_visited": "2020-1-05"
     }
 ]
 ```
