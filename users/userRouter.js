@@ -1,5 +1,6 @@
 const express = require('express');
 
+const Restaurants = require('../api/restaurants/restaurantModel');
 const Reviews = require('../reviews/reviewModel');
 const Users = require('./userModel');
 
@@ -29,4 +30,15 @@ router.get('/', (req, res) => {
     })
     .catch(err => res.status(500).json({ message: 'failed to get users from database'}))
 })
+
+router.get('/:username/restaurants', checkUserId, (req, res) => {
+    const { username } = req.params
+  
+    Restaurants.findByUsername(username)
+    .then(results => {
+        res.status(200).json(results)
+    })
+    .catch(err => res.status(500).json({ message: 'Failed to get reviews from database', error:err}))
+  })
+  
 module.exports = router;
