@@ -267,3 +267,30 @@ _The returned object will look like:_
     }
 ]
 ```
+---
+
+## Retrieve All Restaurants for a User
+-------------------
+_HTTP Method: [GET]_  
+__URL: /api/:username/restaurants__
+
+_The returned object will look like:_
+
+```
+[
+    {
+        "name": "Zaba00s0850080",
+        "cuisine_id": 2,
+        "location": "Las Vegas, NV",
+        "hours_of_operation": "11:00AM - 9PM",
+        "img_url": "sfdsdf"
+    },
+    {
+        "name": "Zaba00s0850080",
+        "cuisine_id": 2,
+        "location": "Las Vegas, NV",
+        "hours_of_operation": "11:00AM - 9PM",
+        "img_url": "sfdsdf"
+    }
+]
+```
