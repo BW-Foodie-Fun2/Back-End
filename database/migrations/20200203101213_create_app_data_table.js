@@ -2,7 +2,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('cuisines', tbl => {
       tbl.increments();
-      tbl.string('name', 255)
+      tbl.string('cuisine_name', 255)
         .notNullable()
         .unique();
   })
