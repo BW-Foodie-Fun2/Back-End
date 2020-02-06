@@ -349,7 +349,7 @@ _The returned object will look like:_
   {
         "id": 2,
         "name": "Zabas",
-        "cuisine_id": 47,
+        "cuisine_name": "American,
         "location": "Las Vegas, NV",
         "hours_of_operation": "11:00AM - 9PM",
         "img_url": "https://s3-media2.fl.yelpcdn.com/bphoto/K5Y2LW7ayGM_InqMtXRNPg/o.jpg",
