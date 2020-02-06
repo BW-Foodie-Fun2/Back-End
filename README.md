@@ -338,7 +338,7 @@ _The returned object will look like:_
     {
        "id": 1,
         "name": "Nikki's Cafe",
-        "cuisine_id": 2,
+        "cuisine_name": "American,
         "location": "Las Vegas, NV",
         "hours_of_operation": "7:00AM - 1PM",
         "img_url": "https://media-cdn.tripadvisor.com/media/photo-s/08/1b/0a/26/egg-works.jpg",
