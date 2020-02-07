@@ -6,7 +6,7 @@ const db = require('../database/db-config');
 describe('users router', function() {
     it("GET /api/users/:username/reviews should return an array", function() {
           return request(server)
-            .get('/api/users/ethan00/reviews')
+            .get('/api/users/ethan/reviews')
             .then(res => {
               console.log(res.body)
               expect(Array.isArray(res.body)).toBe(true);
