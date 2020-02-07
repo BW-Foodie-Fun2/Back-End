@@ -43,8 +43,9 @@ function deleteRestaurant(id) {
 }
 
 function findByUsername(username) {
-  return db('restaurants')
+  return db('restaurants as r')
     .where({ created_by: username })
-    .orderBy('id')
-    .select('name', 'cuisine_id', 'location', 'hours_of_operation', 'img_url')
+    .join('cuisines as c', 'r.cuisine_id', 'c.id')
+    .select('r.id', 'r.name', 'c.cuisine_name', 'r.location', 'r.hours_of_operation', 'r.img_url', 'r.created_by')
+    .orderBy('r.id')
 }
