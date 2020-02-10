@@ -284,7 +284,7 @@ Schema:
 |location | string | yes | location of restaurant |
 |hours_of_operation | string | yes | hours of operation |
 |img_url| string | yes | picture of restaurant in jpg form|
-|created_by| string  | yes | username |
+|created_by| string  | yes* | this is automatically passed through body on the request |
 
 
 _Example_
@@ -295,8 +295,7 @@ _Example_
 	    "cuisine_id": 1,
         "location": "San Diego, CA",
         "hours_of_operation": "9:00AM - 9:00PM",
-        "img_url": "https://koreatownladirectory.com/wpcontent/uploads/2015/02/nicoles-cafe-koreatown-plaza.jpg",
-        "created_by": "nicole"
+        "img_url": "https://koreatownladirectory.com/wpcontent/uploads/2015/02/nicoles-cafe-koreatown-plaza.jpg"
 }
 ```
 
@@ -335,28 +334,24 @@ _The returned object will look like:_
 
 ```
 [
+ {
+        "id": 1,
+        "name": "Five Guys",
+        "cuisine_name": "American",
+        "location": "Las Vegas, NV",
+        "hours_of_operation": "11:00AM - 9:00PM",
+        "img_url": "https://www.rd.com/wp-content/uploads/2019/02/five-guys.jpg",
+        "created_by": "ethan"
+    },
     {
-       "id": 1,
-        "name": "Nikki's Cafe",
-        "cuisine_name": "American,
+        "id": 2,
+        "name": "Egg Works",
+        "cuisine_name": "American",
         "location": "Las Vegas, NV",
         "hours_of_operation": "7:00AM - 1PM",
         "img_url": "https://media-cdn.tripadvisor.com/media/photo-s/08/1b/0a/26/egg-works.jpg",
-        "created_by": "josh",
-        "created_at": "2020-02-04 16:58:37",
-        "updated_at": "2020-02-04 16:58:37"
-  },
-  {
-        "id": 2,
-        "name": "Zabas",
-        "cuisine_id": 47,
-        "location": "Las Vegas, NV",
-        "hours_of_operation": "11:00AM - 9PM",
-        "img_url": "https://s3-media2.fl.yelpcdn.com/bphoto/K5Y2LW7ayGM_InqMtXRNPg/o.jpg",
-        "created_by": "kelly",
-        "created_at": "2020-02-04 16:58:37",
-        "updated_at": "2020-02-04 16:58:37"
-    },
+        "created_by": "josh"
+    }
 ]
 ```
 ---
@@ -383,7 +378,7 @@ _Example_
 _returns:_
 
 ```
-Count of records deleted
+nothing as of right now
 ```
 ---
 
@@ -397,30 +392,17 @@ _The returned object will look like:_
 ```
 [
     {
-        "id": 3,
-        "menu_item": "Cheesy eggs",
-        "item_price": 6.5,
-        "item_rating": 4,
-        "item_review": "Yeah it was okay.",
-        "restaurant_id": 2,
-        "reviewed_by": "josh",
-        "item_image_url": "https://www.mrbreakfast.com/images/1077_spicy_cheesy_eggs.jpg",
-        "created_at": "2020-02-04 16:58:37",
-        "updated_at": "2020-02-04 16:58:37",
-        "date_visited": "2020-1-05"
-  },
-  {
-        "id": 4,
-        "menu_item": "burrito",
-        "item_price": 6.5,
-        "item_rating": 4,
-        "item_review": "Yeah it was okay.",
-        "restaurant_id": 2,
-        "reviewed_by": "EthanHoover0",
-        "item_image_url": "https://www.mrbreakfast.com/images/1077_spicy_cheesy_eggs.jpg",
-        "created_at": "2020-02-04 18:21:54",
-        "updated_at": "2020-02-04 18:21:54",
-        "date_visited": "2020-1-05"
+        "id": 1,
+        "menu_item": "Mushroom Burger",
+        "item_price": 8,
+        "item_rating": 5,
+        "item_review": "Nice well cooked shroom burger!",
+        "restaurant_id": 1,
+        "reviewed_by": "ethan",
+        "item_image_url": "https://www.simplyrecipes.com/wp-content/uploads/2011/06/grilled-beef-mushroom-burgers-verrtical-a-1800.jpg",
+        "created_at": "2020-02-07 19:41:50",
+        "updated_at": "2020-02-07 19:41:50",
+        "date_visited": "2020-1-20"
     }
 ]
 ```
@@ -474,14 +456,14 @@ _The returned object will look like:_
 [
     {
         "name": "Zaba00s0850080",
-        "cuisine_id": 2,
+        "cuisine_name": "Mexican",
         "location": "Las Vegas, NV",
         "hours_of_operation": "11:00AM - 9PM",
         "img_url": "sfdsdf"
     },
     {
         "name": "Zaba00s0850080",
-        "cuisine_id": 2,
+        "cuisine_name": "Mexican",
         "location": "Las Vegas, NV",
         "hours_of_operation": "11:00AM - 9PM",
         "img_url": "sfdsdf"

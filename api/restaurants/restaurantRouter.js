@@ -4,6 +4,8 @@ const restaurantModel = require("../restaurants/restaurantModel.js");
 const restricted = require("../../auth/authenticate-middleware")
 const Reviews = require('../../reviews/reviewModel.js');
 
+const { bodyValidation, checkDuplicate, bodyWhitelist, checkRestaurantId, checkIfAuthorized } = require('./validation-middleware.js');
+
 router.get("/", (req, res) => {
 
   restaurantModel.findRestaurants()
@@ -16,58 +18,59 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/:id/reviews", (req, res) => {
-  const id = req.params.id
+router.get('/:id', checkRestaurantId, (req, res) => {
+  res.status(200).json(req.restaurant)
+})
+
+router.get('/:id/reviews', checkRestaurantId, (req, res) => {
+  const { id } = req.params
+
   Reviews.findByRestaurantId(id)
-    .then(reviews => {
-      res.status(200).json(reviews)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).json({ message: "Failed to get reviews for this restaurant" });
-    });
-});
+  .then(reviews => {
+    res.status(200).json(reviews)
+  })
+  .catch(err => res.status(500).json({ message: "'Failed to get reviews from database'", error: err }))
+})
 
-router.post("/", restricted, (req, res) => {
-  const restaurantBody = req.body
-  restaurantModel.addRestaurant(restaurantBody)
-    .then(restaurant => {
-      console.log(restaurantBody)
-      if (!restaurantBody.name || !restaurantBody.cuisine_id || !restaurantBody.hours_of_operation || !restaurantBody.location || !restaurantBody.img_url || !restaurantBody.created_by) {
-        return res.status(400).json({ message: 'All fields are required' });
-      } else {
-        res.status(200).json(restaurant)
-      }
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).json(err.message);
-    });
-});
+router.post('/', restricted, bodyValidation, (req, res) => {
+  console.log(req.body)
+  const filteredBody = bodyWhitelist(req.body)
 
-router.put("/:id", restricted, (req, res) => {
-  const id = req.params.id
-  const changes = req.body
-  restaurantModel.updateRestaurant(id, changes)
-    .then(restaurant => {
+  console.log("restaurantRouter POST req.body: ", JSON.stringify(req.body))
+
+  const body = {...filteredBody, created_by: req.token.username}
+
+  restaurantModel.add(body)
+  .then(restaurant => res.status(201).json(restaurant))
+  .catch(err => {
+    console.log("restaurantRouter POST 500 error: ", err)
+    res.status(500).json({ error: err })
+  })
+})
+
+router.put('/:id', restricted, checkRestaurantId, (req, res) => {
+  const filteredBody = bodyWhitelist(req.body)
+  const { id } = req.params
+
+  const body = {...filteredBody, updated_at: new Date(Date.now()).toISOString()}
+
+  restaurantModel.update(id, body)
+  .then(() => {
+    restaurantModel.findById(id)
+    .then((restaurant) => {
       res.status(200).json(restaurant)
     })
-    .catch(err => {
-      console.log(err)
-      res.status(500).json({ message: "Failed to update restaurant" });
-    });
-});
+  })
+  .catch(err => res.status(500).json({ error: err }))
+})
 
-router.delete("/:id", restricted, (req, res) => {
-  const id = req.params.id
-  restaurantModel.deleteRestaurant(id)
-    .then(id => {
-      res.status(200).json(id)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).json({ message: "Failed to delete restaurant" });
-    });
+router.delete('/:id', restricted, checkRestaurantId, checkIfAuthorized, (req, res) => {
+  restaurantModel.remove(req.params.id)
+  .then(() => res.status(204).end())
+  .catch(err => {
+    console.log(err);
+    res.status(500).json({ error: err })
+  })
 });
 
 
