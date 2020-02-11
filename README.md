@@ -470,3 +470,9 @@ _The returned object will look like:_
     }
 ]
 ```
+----
+_HTTP Method: [get]_
+----
+__URL: /api/cuisines__
+
+returns all seeded cuisines
